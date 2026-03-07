@@ -1,0 +1,167 @@
+'''
+India Isaacson
+I created a snowy scene with a house, the sun, a cloud, a tree, a snowman, and the grass.
+'''
+
+
+# loads the Turtle graphics module, which is a built-in library in Python
+import turtle
+import math
+
+def setup_turtle():
+    """Initialize turtle with standard settings"""
+    t = turtle.Turtle()
+    t.speed(0)  # Fastest speed
+    screen = turtle.Screen()
+    screen.title("Turtle Graphics Assignment")
+    return t, screen
+
+
+def draw_rectangle(t, width, height, fill_color=None):
+    """Draw a rectangle with optional fill"""
+    if fill_color:
+        t.fillcolor(fill_color)
+        t.begin_fill()
+    for _ in range(2):
+        t.forward(width)
+        t.right(90)
+        t.forward(height)
+        t.right(90)
+    if fill_color:
+        t.end_fill()
+
+def draw_square(t, size, fill_color=None):
+    """Draw a square with optional fill"""
+    if fill_color:
+        t.fillcolor(fill_color)
+        t.begin_fill()
+    for _ in range(4):
+        t.forward(size)
+        t.right(90)
+    if fill_color:
+        t.end_fill()
+
+
+def draw_triangle(t, size, fill_color=None):
+    """Draw an equilateral triangle with optional fill"""
+    if fill_color:
+        t.fillcolor(fill_color)
+        t.begin_fill()
+    for _ in range(3):
+        t.forward(size)
+        t.left(120)
+    if fill_color:
+        t.end_fill()
+
+
+def draw_circle(t, radius, fill_color=None):
+    """Draw a circle with optional fill"""
+    if fill_color:
+        t.fillcolor(fill_color)
+        t.begin_fill()
+    t.circle(radius)
+    if fill_color:
+        t.end_fill()
+
+def draw_curve(t, length, curve_factor, segments=10, fill_color=None):
+    """
+    Draw a curved line using small line segments
+    
+    Parameters:
+    - t: turtle object
+    - length: total length of the curve
+    - curve_factor: positive for upward curve, negative for downward curve
+    - segments: number of segments (higher = smoother curve)
+    - fill_color: optional color to fill if creating a closed shape
+    """
+    if fill_color:
+        t.fillcolor(fill_color)
+        t.begin_fill()
+        
+    segment_length = length / segments
+    # Save the original heading
+    original_heading = t.heading()
+    
+    for i in range(segments):
+        # Calculate the angle for this segment
+        angle = curve_factor * math.sin(math.pi * i / segments)
+        t.right(angle)
+        t.forward(segment_length)
+        t.left(angle)  # Reset the angle for the next segment
+    
+    # Reset to original heading
+    t.setheading(original_heading)
+    
+    if fill_color:
+        t.end_fill()
+        
+def jump_to(t, x, y):
+    """Move turtle without drawing"""
+    t.penup()
+    t.goto(x, y)
+    t.pendown()
+
+
+def draw_scene(t):
+    """Draw a colorful scene with various shapes"""
+    # Set background color
+    screen = t.getscreen()
+    screen.bgcolor("skyblue")
+    #draw house with a red roof
+    jump_to(t, 0, -20)
+    draw_triangle(t, 100, fill_color="red")
+    draw_square(t, 80, fill_color="black")
+    jump_to(t, 200, 0)
+    #draw a house with a brown roof
+    jump_to(t, -150, -20)
+    draw_triangle(t, 100, fill_color="brown")
+    draw_square(t, 80, fill_color="black")
+    jump_to(t, 200, 0)
+    #draw a tree with snow and a branch
+    draw_circle(t, 70, fill_color="white")
+    jump_to(t, 175, 0)
+    draw_rectangle(t, 50, 100, fill_color="tan") 
+    draw_curve(t, 100, 5, fill_color="tan")   
+    #draw sun 
+    jump_to(t, -200, 150)
+    draw_circle(t, 50, fill_color="yellow")
+    #draw two clouds
+    jump_to(t, -100, 200)
+    draw_circle(t, 30, fill_color="white")
+    jump_to(t, -70, 220)
+    draw_circle(t, 30, fill_color="white")
+    jump_to(t, -40, 200)
+    draw_circle(t, 30, fill_color="white")
+    jump_to(t, 50, 180)
+    draw_circle(t, 30, fill_color="white")
+    jump_to(t, 80, 200)
+    draw_circle(t, 30, fill_color="white")
+    jump_to(t, 110, 180)
+    draw_circle(t, 30, fill_color="white")
+    #draw the snowy grass
+    jump_to(t, -300, -100)
+    draw_rectangle(t, 800, 200, fill_color="white")
+    #draw a snowman
+    # bottom circle
+    jump_to(t, -250, -100)
+    draw_circle(t, 40, fill_color="white")  
+    # middle circle
+    jump_to(t, -250, -60)
+    draw_circle(t, 30, fill_color="white")  
+    jump_to(t, -250, -20)
+    # head circle 
+    draw_circle(t, 20, fill_color="white")  
+    
+    
+    
+
+# This is the main() function that starts off the execution
+def main():
+    t, screen = setup_turtle()
+    draw_scene(t)
+    screen.mainloop()
+    
+# if this script is executed, call the main() function
+# meaning when is file is run directly
+if __name__ == "__main__":
+    main()
