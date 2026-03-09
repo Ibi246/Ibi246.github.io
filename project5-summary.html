@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Project 5: Text Processing and Word Frequency Analysis</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <header>
+        <h1>Project 5: Text Processing and Word Frequency Analysis with NLP</h1>
+        <nav>
+            <a href="index.html">← Back to Portfolio</a>
+        </nav>
+    </header>
+
+    <section id="overview">
+        <h2>Overview</h2>
+        <p>This project applies Natural Language Processing (NLP) techniques to analyze literary texts, specifically "Alice's Adventures in Wonderland" by Lewis Carroll. Students learn to process raw text data, remove noise through filtering and lemmatization, and extract meaningful insights about word frequency patterns that reveal thematic content.</p>
+    </section>
+
+    <section id="objectives">
+        <h2>Project Objectives</h2>
+        <ul>
+            <li>Load and manage large text datasets efficiently using caching</li>
+            <li>Implement text preprocessing techniques to improve analysis quality</li>
+            <li>Use SpaCy library for advanced tokenization, lemmatization, and stop word removal</li>
+            <li>Calculate and visualize word frequency distributions</li>
+            <li>Compare results before and after preprocessing</li>
+            <li>Analyze how preprocessing affects interpretability of text data</li>
+            <li>Apply techniques to texts of personal choice and provide written analysis</li>
+        </ul>
+    </section>
+
+    <section id="data-source">
+        <h2>Data Source</h2>
+        <ul>
+            <li><strong>Text:</strong> Alice's Adventures in Wonderland by Lewis Carroll</li>
+            <li><strong>Word Count:</strong> Approximately 27,500 words</li>
+            <li><strong>Reason for Selection:</strong> Accessible from Project Gutenberg, well-known story enabling meaningful analysis, and class-friendly content</li>
+        </ul>
+    </section>
+
+    <section id="core-components">
+        <h2>Core Technical Components</h2>
+
+        <h3>SpaCy NLP Library Integration</h3>
+        <ul>
+            <li>Loads the English language model (<code>en_core_web_sm</code>)</li>
+            <li>Provides tokenization, lemmatization, and linguistic analysis</li>
+            <li>Automatically identifies and removes stop words</li>
+            <li>Handles language-specific text normalization</li>
+        </ul>
+
+        <h3>Text Fetching and Caching System</h3>
+        <ul>
+            <li><code>fetch_text()</code> function retrieves text from URLs with automatic caching</li>
+            <li>Uses SHA-1 hashing to create unique filenames for each URL</li>
+            <li>Implements error handling with user-friendly feedback messages</li>
+            <li>Avoids redundant network requests through local file storage</li>
+            <li>Creates organized directory structure for cached content</li>
+        </ul>
+
+        <h3>Text Processing Function</h3>
+        <p><code>word_tokenization_normalization()</code> function performs comprehensive preprocessing:</p>
+        <ul>
+            <li>Converts text to lowercase for consistency</li>
+            <li>Tokenizes text into individual words and punctuation</li>
+            <li>Removes stop words (common words like "the", "and", "is")</li>
+            <li>Filters out punctuation marks</li>
+            <li>Eliminates numeric values</li>
+            <li>Removes very short words (less than 3 characters)</li>
+            <li>Applies lemmatization to reduce words to their base forms</li>
+        </ul>
+    </section>
+
+    <section id="methodology">
+        <h2>Analysis Methodology</h2>
+        <p>The project involves two stages:</p>
+        <ol>
+            <li><strong>Initial Analysis</strong> - Counts word frequencies without preprocessing to show dominance of common words</li>
+            <li><strong>Refined Analysis</strong> - Applies full preprocessing pipeline to reveal meaningful thematic words and patterns</li>
+        </ol>
+    </section>
+
+    <section id="deliverables">
+        <h2>Expected Deliverables</h2>
+        <ul>
+            <li>Identification of the 15 most frequently used meaningful words</li>
+            <li>Comparison of preprocessed vs. non-preprocessed results</li>
+            <li>Written analysis (1-2 paragraphs) explaining what the words reveal about text themes</li>
+            <li>Explanation of why preprocessing is essential for effective text analysis</li>
+            <li>Application of techniques to a self-chosen text with complete analysis</li>
+        </ul>
+    </section>
+
+    <section id="significance">
+        <h2>Significance</h2>
+        <p>This project demonstrates how data preprocessing transforms raw information into actionable insights, a critical skill in data science and natural language processing applications.</p>
+    </section>
+
+    <section id="project-files">
+        <h2>Project Files</h2>
+        <ul>
+            <li><a href="project5.py" download>Download Project 5 Source Code</a></li>
+        </ul>
+    </section>
+
+    <footer>
+        <p>&copy; 2026 India Isaacson. All rights reserved.</p>
+    </footer>
+</body>
+</html>
